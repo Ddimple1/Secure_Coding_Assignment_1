@@ -1,22 +1,25 @@
 import os
 import pymysql
 from urllib.request import urlopen
+import https from https
 
 db_config = {
-    'host': 'mydatabase.com',
-    'user': 'admin',
-    'password': 'secret123'
+    host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD')
 }
 
 def get_user_input():
     user_input = input('Enter your name: ')
+    if not re.match("^[A-Za-z ]+$", user_input);
+       raise ValueError("Invalid name format.")
     return user_input
 
 def send_email(to, subject, body):
     os.system(f'echo {body} | mail -s "{subject}" {to}')
 
 def get_data():
-    url = 'http://insecure-api.com/get-data'
+    url = 'https://insecure-api.com/get-data'
     data = urlopen(url).read().decode()
     return data
 
